@@ -1,14 +1,12 @@
 <?php require('dbconnect.php') ?>
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <h2>Practice</h2>
   <?php
@@ -24,17 +22,17 @@
   ?>
   <article>
     <?php while ($memo = $memos->fetch()) : ?>
-      <p>
-        <a href="memo.php?id=<?php print($memo['id']); ?>">
-          <?php print(mb_substr($memo['memo'], 0, 50)); ?>
-          <?php print((mb_strlen($memo['memo']) > 50 ? '...' : '')); ?>
-        </a>
-      </p>
-      <time><?php print($memo['created_at']); ?></time>
-      <hr>
+    <p>
+      <a href="memo.php?id=<?php print($memo['id']); ?>">
+        <?php print(mb_substr($memo['memo'], 0, 50)); ?>
+        <?php print((mb_strlen($memo['memo']) > 50 ? '...' : '')); ?>
+      </a>
+    </p>
+    <time><?php print($memo['created_at']); ?></time>
+    <hr>
     <?php endwhile; ?>
     <?php if ($page >= 2) : ?>
-      <a href="index.php?page=<?php print($page - 1); ?>"><?php print($page - 1); ?>ページ目へ</a>
+    <a href="index.php?page=<?php print($page - 1); ?>"><?php print($page - 1); ?>ページ目へ</a>
     <?php endif; ?>
     |
     <?php
@@ -43,9 +41,8 @@
     $max_page = ceil($count['cnt'] / 5);
     if ($page < $max_page):
     ?>
-      <a href="index.php?page=<?php print($page + 1); ?>"><?php print($page + 1); ?>ページ目へ</a>
+    <a href="index.php?page=<?php print($page + 1); ?>"><?php print($page + 1); ?>ページ目へ</a>
     <?php endif; ?>
   </article>
 </body>
-
 </html>
